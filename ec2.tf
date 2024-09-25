@@ -6,6 +6,6 @@ resource "aws_instance" "instancia_trf" {
   subnet_id = aws_subnet.subnet_app_glpi.id
   vpc_security_group_ids = [aws_security_group.sg_app.id]
   tags = {
-    Name = "instancia glpi"
+    Name = var.name_app
   }
 }

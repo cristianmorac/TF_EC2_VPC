@@ -1,3 +1,9 @@
+variable "name_app" {
+    description = "Name instance EC2"
+    type = string
+    default = "glpi"
+}
+
 resource "aws_vpc" "vpc_app" {
   cidr_block = "10.0.0.0/16"
   enable_dns_hostnames = true
@@ -12,7 +18,7 @@ resource "aws_subnet" "subnet_app_glpi" {
   cidr_block = "10.0.1.0/24"
   availability_zone = "us-east-1c"
   tags = {
-    Name = "Subnet_public_glpi"
+    Name = format("Subnet_public_%s",var.name_app)
   }
 }
 
