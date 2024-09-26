@@ -1,7 +1,7 @@
 resource "aws_instance" "instancia_trf" {
-  ami = "ami-04a81a99f5ec58529"
-  instance_type = "t2.micro"
-  key_name = "key_Windows_Personal"
+  ami = var.I_EC2["ami"]
+  instance_type = var.I_EC2["instance_type"]
+  key_name = var.I_EC2["key_name"]
   associate_public_ip_address = true
   subnet_id = aws_subnet.subnet_app_glpi.id
   vpc_security_group_ids = [aws_security_group.sg_app.id]

@@ -1,14 +1,8 @@
-variable "name_app" {
-    description = "Name instance EC2"
-    type = string
-    default = "glpi"
-}
-
 resource "aws_vpc" "vpc_app" {
   cidr_block = "10.0.0.0/16"
   enable_dns_hostnames = true
   tags = {
-    Name = "VPC_GLPI"
+    Name = format("VPC_%s",var.name_app)
   }
 }
 

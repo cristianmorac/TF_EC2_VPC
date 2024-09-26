@@ -1,9 +1,9 @@
 resource "aws_security_group" "sg_app" {
-  name = "SG access glpi"
+  name = "SG access app"
   description = "allow access app, desde cualquier lugar"
   vpc_id = aws_vpc.vpc_app.id
   tags = {
-    Name = "SG_app_acceso"
+    Name = format("SG_access_%s",var.name_app)
   }
 
   ingress {
